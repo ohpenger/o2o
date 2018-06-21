@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>南大商城</title>
+	<meta charset="utf-8">
+	<link href="../resources/css/shop/iconfont.css" rel="stylesheet" type="text/css" />   
+	<style>
+		body,html,ul,ol {
+			padding: 0;
+			margin: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+		#header {
+			display: flex;
+			background: #eee;
+		}
+		.search {
+			flex: 1;
+			min-width: 370px;
+			padding: 10px 50px;
+		}	
+		.classification {
+			margin: 3px 0;
+			border-radius: 5px 0 0 5px;
+			border: 1px solid black;
+			border-right: none;
+			width: 79px;
+			height: 32px;
+			line-height: 32px;
+			font-size: 13px;
+			text-align: center;
+			float: left;
+		}		
+		.arrow_icon {
+			font-size: 12px;
+		}		
+		.search_input {
+			margin: 3px 0;
+			padding: 1px 10px;
+			border: 1px solid black;
+			border-right: none;
+			outline: none;
+			width: 210px;
+			height: 30px;
+			line-height: 32px;
+			background: #eee;
+			font-size: 15px;
+			float: left;
+		}			
+		.search_icon {
+			display: inline-block;
+			margin: 3px 0;
+			padding: 0 5px;
+			height: 32px;
+			line-height: 32px;
+			font-size: 20px;
+			border: 1px solid black;
+			border-left: none;
+			border-radius: 0 5px 5px 0;
+		}		
+		.userinfo {
+			padding-right: 30px;
+			height: 66px;
+			line-height: 66px;
+			font-size: 13px;
+			text-align: center;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.shopping_trolley {
+			color: #585858;
+		}		
+		.user_order {
+			color: #585858;
+		}
+		.order_icon {
+			font-size: 13px;
+		}		
+		.header_login {
+			color: #4CB5E5;
+		}
+		.header_register {
+			color: #F67575;
+		}
+		li {
+      list-style: none;
+    }
+    img {
+      border: none;
+      vertical-align: middle;
+    }
+    #box {
+      width: 1000px;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    #box ul {
+      position: absolute;
+      left: 0;
+      top:0;
+      height: 350px;
+    }
+    #box ul li {
+      float: left;
+      width: 1000px;
+      height: 350px;
+    }
+    #box ul li a {
+      display: block;
+      height: 350px;
+    }
+    #box ul li a img {
+      width: 1000px;
+      height: 100%;
+    }
+    #prev,#next {
+      position: absolute;
+      top: 130px;
+      width:40px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      cursor: pointer;
+    }
+    #prev {
+     left: 0;
+    }
+    #next {
+     right: 0;
+    }
+		.shop_category_list_title_wrapper	{
+			line-height: 60px;
+			height: 60px;
+			padding: 10px 0;	
+			background: #eee;
+		}	
+		.shop_category_list_title {
+			padding-left: 50px;
+			font-size: 20px;
+			border-left:20px solid #09A3CC;
+			color: #09A3CC;
+		}
+		.shop_category_list_wrapper {
+			overflow: hidden;
+			height: 0;
+			padding-bottom: 320px;
+			padding-top: 20px;
+		}
+		.item {
+			box-sizing: border-box;
+			float: left;
+			width: 50%;
+			min-width:300px;
+			display: flex;
+			padding-right: 50px;
+		}
+		.item_info {
+			box-sizing: border-box;
+			flex: 1;
+			height: 100px;
+			line-height: 100px;
+			padding-left: 50px;
+			font-size: 20px;
+		}
+		.item_img {
+			width: 100px;
+			height: 100px;
+		}
+		#footer {
+			background: #eee;
+		}
+		.footer_chinese_info_wrapper {
+			height: 50px;
+			position: relative;
+		}
+		.footer_chinese_info {
+			color: #737272;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			font-size: 11px;
+		}
+		.footer_english_info_wrapper {
+			height: 40px;
+			position: relative;
+		}
+		.footer_english_info {
+			color: #737272;
+			width: 100%;
+			position: absolute;
+			top: 5px;
+			text-align: center;
+			font-size: 11px;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<img src="http://r.photo.store.qq.com/psb?/V10zaHw52zpsaX/q4B3XHBgBem5ZTQ*GNrQ42hmTLq8eSmzKXlAKWnwci4!/r/dDEBAAAAAAAA"  class="header_img" />
+		<div class="search">
+			<div class="classification">
+				全部分类&nbsp;<span class="iconfont arrow_icon">&#xe64a;</span>
+			</div>
+			<input type="text" class="search_input" />
+			<span class="iconfont search_icon">&#xe60b;</span>
+		</div>
+		<div>
+			<div class="userinfo">
+				<span>你好，请
+					<a href="http://localhost:8080/oto/shopadmin/login" class="header_login">登录</a>
+					|<a href="http://localhost:8080/oto/shopadmin/register
+" class="header_register">&nbsp;免费注册&nbsp;&nbsp;&nbsp;</a>
+				</span>
+				<span>
+				<a href="#" class="shopping_trolley">
+					<span class="iconfont">&#xe62c;</span>
+					购物车&nbsp;&nbsp;&nbsp;
+				</a>
+				<a href='#' class="user_order">
+					<span class="iconfont order_icon">&#xe6bd;</span>
+					我的商店&nbsp;&nbsp;&nbsp;
+				</a>
+			</span>
+			</div>	
+		</div>
+	</div>
+	<div id="wrapper">
+		<div id="box">
+	    <ul>
+	        <li><a href="javascript:;"><img src="https://img11.360buyimg.com/da/jfs/t20635/32/956180250/273060/85ebaaeb/5b1c8cc6N2b0e5dcb.jpg!q90.jpg" alt="1"></a></li>
+	        <li><a href="javascript:;"><img src="https://images-cn.ssl-images-amazon.com/images/G/28/kindle/design/2018/Device/ys_180607_ATF1500x300_play_dvc._CB476390040_.jpg" alt="2"></a></li>
+	        <li><a href="javascript:;"><img src="https://img10.static.yhbimg.com/yhb-img01/2018/06/12/09/01007de5e4199ba0a50ba3c53990c53977.jpg?imageView2/2/w/1150/h/450" alt="3"></a></li>
+	        <li><a href="javascript:;"><img src="https://img10.360buyimg.com/da/jfs/t21973/130/1036232945/129849/88862ffd/5b1e57d6Nf3e4cfa9.jpg!q80.webp" alt="4"></a></li>
+	    </ul>
+	    <a id="prev"><</a>
+	    <a id="next">></a>
+	  </div>
+	  <div class="shop_category_list_title_wrapper">
+			<div class="shop_category_list_title">全部商店</div>
+		</div>
+		<div class="shop_category_list_wrapper">
+			<div class="item">
+				<div class="item_info">二手市场</div>
+				<img src="http://r.photo.store.qq.com/psb?/V10zaHw54bhy4m/qmjOwaMe5ZzhMbcvNnwhe*TllDtVNlc9JpfOv02YWhU!/r/dEcBAAAAAAAA" class="item_img" />
+			</div>
+			<div class="item">
+				<div class="item_info">美容美发</div>
+				<img src="http://r.photo.store.qq.com/psb?/V10zaHw54bhy4m/Kjk0nQV3U5WlrNOKjYYgaC2s0m57oitFhTlV3nw7uy0!/r/dDMBAAAAAAAA" class="item_img" />
+			</div>
+			<div class="item">
+				<div class="item_info">美食饮品</div>
+				<img src="http://r.photo.store.qq.com/psb?/V10zaHw54bhy4m/2smm3WdG73ze4dBIqm5RytzaK8Lz.x*pkPvcw017qwc!/r/dC4BAAAAAAAA" class="item_img" />
+			</div>
+			<div class="item">
+				<div class="item_info">休闲娱乐</div>
+				<img src="http://r.photo.store.qq.com/psb?/V10zaHw54bhy4m/XcMxBut1BsaAjzTpTwdOeOryh8XTbUQJImh5tRZ1mhY!/r/dC8BAAAAAAAA" class="item_img" />
+			</div>
+			<div class="item">
+				<div class="item_info">培训教育</div>
+				<img src="http://r.photo.store.qq.com/psb?/V10zaHw54bhy4m/pe5cWlItjq*CZsNZQ2s2Hke18Fx2EreiJDACisgeDiQ!/r/dIMAAAAAAAAA" class="item_img" />
+			</div>
+			<div class="item">
+				<div class="item_info">租赁市场</div>
+				<img src="http://r.photo.store.qq.com/psb?/V10zaHw54bhy4m/qtETv4Wp3zRWIh139TJm4hdDZ0BkuKIQ.Ht6JlYHfqc!/r/dPMAAAAAAAAA" class="item_img" />
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="footer_chinese_info_wrapper">
+			<div class="footer_chinese_info">
+				南昌大学422寝室购物网
+			</div>
+		</div>
+		<div class="footer_english_info_wrapper">
+			<div class="footer_english_info">
+				NanChangUniversity oto shop
+			</div>
+		</div>		
+	</div>	
+	
+
+  <script>
+    window.onload = function(){
+      var oDiv = document.getElementById('box');
+      var oUl = oDiv.getElementsByTagName('ul')[0];
+      var aLi = oUl.getElementsByTagName('li');
+      var prev = document.getElementById('prev');
+      var next = document.getElementById('next');
+      var num = 0;
+      var timer = null;
+
+      var lastChild = oUl.children[0].cloneNode(true);   //为了实现无缝，将第一张图片复制放到最后面
+      oUl.appendChild(lastChild);
+      oUl.style.width = aLi[0].offsetWidth * aLi.length + 'px';
+
+      function autoPlay(){
+        timer = setInterval(function(){
+          num++;  
+          move();
+        }, 2000);
+      }
+      autoPlay();
+      function move(){
+        if(num == aLi.length){  //当图片到最后一张的时候，将oUl的left值设为0重新开始
+        oUl.style.left = 0;
+            num = 1;
+        }
+        else if(num == -1){
+          oUl.style.left = -(aLi.length-1)*aLi[0].offsetWidth + 'px';
+          num = aLi.length-2;
+        }
+        doMove(oUl,'left',-num*aLi[0].offsetWidth);
+      }
+      oDiv.onmouseover = function(){
+        clearInterval(timer);
+      }
+      oDiv.onmouseout = autoPlay;
+      prev.onclick = function(){
+        num--;
+        move();
+      }
+      next.onclick = function(){
+        num++;
+        move();
+      }
+    }
+    function doMove(obj,attr,target){   //运动函数
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function(){
+        var speed = (target - parseInt(getStyle(obj,attr))) / 8;  //设置速度，随着图片滚动，速度越来越小
+        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+        if(parseInt(getStyle(obj,attr))== target){
+          clearInterval(obj.timer);
+
+        } else{
+          obj.style[attr] = parseInt(getStyle(obj,attr)) + speed + 'px';
+        }
+      }, 30);
+    }
+    function getStyle(obj,attr){ // 获取样式
+      return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+    }
+  </script>
+</body>
+</html>

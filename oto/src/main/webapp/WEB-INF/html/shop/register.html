@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+	<title>用户注册</title>
+	<script type='text/javascript' src='../resources/js/shop/jquery-3.3.1.js' charset='utf-8'></script>
+	<style>
+		body,html {
+			padding: 0;
+			margin: 0;
+			background: #eee;
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		ul,ol {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		h1,h2 {
+			margin: 0;
+		}
+		#main {
+			width: 80%;
+			height: 80%;
+			background-color: #fff;
+			position: absolute;
+			top: 0; bottom: 0;
+			left: 0; right: 0;
+			margin: auto;
+		}
+		#main p {
+			margin: 0;
+			padding: 0 30px 20px 30px;
+			text-align: center;
+			text-align: center;
+    	font-size: 15px;
+    	font-weight: 600;
+    	color: #383737;
+    	border-bottom: 1px solid #E7E0E0;
+		}
+		#header {
+			text-align: center;
+			padding: 20px;
+		}
+		#header h1 {
+			color: #272727;
+    	font-weight: 700;
+    	font-size: 22px;
+		}
+		.user_form_wrapper {
+			position: relative;
+			width: 100%;
+		}
+		.user_form {
+			position: absolute;
+			box-sizing: border-box;
+			padding: 20px 30px;
+			width: 460px;
+			left: 0; right: 0;
+			margin: auto;
+		}
+		.user_form h2 {
+			text-align: left;
+    	font-size: 17px;
+    	font-weight: 600;
+    	margin: 15px 3px;
+    	color: #3F3D3D;
+		}
+		.user_form li {
+			display: block;
+    	color: #4D4949;
+    	margin-bottom: 30px;
+		}
+		.user_form li input {
+			padding-left: 10px;
+			height: 40px;
+			width: 400px;
+			border: 1px solid #EBEBEB;
+    	border-radius: 5px;
+		}
+		.user_form button {
+			padding: 10px 19px;
+	    border-radius: 5px;
+	    color: #4D4949;
+	    background: #F3F3F3;
+	    border: 1px solid #EBEBEB;
+	    font-weight: bold;
+	    font-size: 15px;
+	    outline: none;
+	    transition: all 0.5s ease-out;
+	    -webkit-transition: all 0.5s ease-out;
+	    -moz-transition: all 0.5s ease-out;
+	    -ms-transition: all 0.5s ease-out;
+	    -o-transition: all 0.5s ease-out;
+	    margin-top: 15px;
+	    cursor: pointer;
+		}
+		.user_form button:hover {
+			padding: 10px 19px;
+	    border-radius: 5px;
+	    color: #F3F3F3;
+	    background: #4D4949;
+	    border: 1px solid #EBEBEB;
+	    font-weight: bold;
+	    font-size: 15px;
+	    outline: none;
+	    transition: all 0.5s ease-out;
+	    -webkit-transition: all 0.5s ease-out;
+	    -moz-transition: all 0.5s ease-out;
+	    -ms-transition: all 0.5s ease-out;
+	    -o-transition: all 0.5s ease-out;
+	    margin-top: 15px;
+	    cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="header">
+			<h1>用户注册</h1>
+		</div>
+		<p>请在下面表单填写你的注册信息</p>
+		<div class="user_form_wrapper">
+			<ul class="user_form">
+				<h2>New User</h2>
+				<li>
+					<input type="text" id="username" placeholder="用户名" required/>
+				</li> 
+				<li>
+					<input type="text" placeholder="邮箱" required/>
+				</li> 
+				<li>
+					<input type="password" id="password" placeholder="密码" required/>
+				</li> 
+				<li>
+					<input type="password" placeholder="确认密码" required/>
+				</li> 
+				<button onClick="upload()">Create Account</button>
+			</ul>	
+		</div>			
+	</div>
+	<script>
+		function upload() {
+			var formData = {
+				'userName' : $('#username').val(),
+				'password' : $('#password').val()
+			}
+			$.ajax({
+				url: '/oto/shopadmin/addlocalauth',
+				type: 'POST',
+				data: JSON.stringify(formData),
+				dataType:'json',
+				contentType: "application/json; charset=utf-8",
+				processData: false,
+				cache: false,
+				success: function(data) {
+					if(data.success) {
+						alert('提交成功！');
+						window.location.href="http://localhost:8080/oto/shopadmin/ncu";
+					} else{
+						alert('提交失败！');
+					}
+				}
+			})
+		}
+	</script>
+</body>
+</html>
